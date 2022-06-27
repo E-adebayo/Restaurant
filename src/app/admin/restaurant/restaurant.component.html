@@ -1,0 +1,13 @@
+<div class="design-item" (click)="readMore()">
+    <div class="design-img">
+        <img src={{restaurant.img}}>
+        <span><i class="far fa-heart"></i> {{restaurant.likes}}</span>
+        <span>{{restaurant.nom}}</span>
+    </div>
+    <div class="design-title" >    
+        <div class="btn-group btn-group-sm" role="group">
+            <button type="button" class="btn btn-primary btn-sm" (click)="increment($event)">👍🏻</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="decrement($event)">👎🏻</button>
+        </div>
+    </div>
+</div>

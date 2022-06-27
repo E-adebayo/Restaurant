@@ -1,0 +1,44 @@
+<head>
+    <script src="https://kit.fontawesome.com/a357ae0183.js" crossorigin="anonymous"></script>
+</head>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" aria-controls="jumbotronExample" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="color: black;">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #cc6600;" [routerLink]="['']"><i
+                            class="fa-solid fa-utensils"></i>Restaurant</a>
+                </li>
+                <li class="nav-item" id="login_nav" *ngIf="isLoggedIn">
+                    <a class="nav-link" style="color: #cc6600;" (click)="addmenu()"><i
+                            class="fa-solid fa-plus"></i>Ajouter Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #cc6600;" [routerLink]="['/about']">
+                        <i class="fa-solid fa-address-card"></i>À propos</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLoggedIn"> <a class="nav-link" style="color: #cc6600;" [routerLink]="['/signup']">
+                        <i class="fa-solid fa-user-plus"></i>S'inscrire
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="!isLoggedIn"> <a class="nav-link" style="color: #cc6600;" [routerLink]="['/login']">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Se Connecter</a>
+            </li>
+
+            <li class="nav-item" id="login_nav" *ngIf="isLoggedIn"> <a class="nav-link" style="color: #cc6600;" (click)="logout()">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Se déconnecter</a>
+        </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

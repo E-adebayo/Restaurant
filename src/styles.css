@@ -1,0 +1,881 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lobster&family=Merriweather:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,200&family=Josefin+Sans&family=Lobster&family=Merriweather:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,200&family=Josefin+Sans&family=Lobster&family=Merriweather:ital,wght@1,300&family=Poppins:wght@300&display=swap');
+/* Body a aussi un style, malgré le fait qu'il inclue toute la fenêtre */
+/*
+body {
+	margin-top: 0;
+	margin-bottom:0;
+	background-color: white;
+	padding: 12px 25px;
+}
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --Playfair: 'Playfair Display', serif;
+  --Quicksand: 'Quicksand', sans-serif;
+  --Roboto: 'Roboto', sans-serif;
+  --dark: #3c393d;
+  --exDark: #2b2b2b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: var(--Quicksand);
+}
+
+body {
+  line-height: 1.4;
+  color: var(--dark);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: 'IBM Plex Serif', serif;
+
+  font-family: 'Josefin Sans', sans-serif;
+
+  font-family: 'Lobster', cursive;
+
+  font-family: 'Merriweather', serif;
+}
+
+nav h1 {
+  font-size: 30px;
+}
+
+nav .onglets {
+  margin-top: 30px;
+}
+
+nav .onglets a {
+  text-decoration: none;
+  color: #7f7e7e;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+
+/* # permet de faire référence à un "ID" d'identification unique */
+/*
+#MainContainer {
+	margin: 0px auto;
+	width: 70%;
+	border-width: 0px 10px; 
+	border-style:double; 
+	border-color:rgb(230, 191, 201);
+	padding: 0px 10px;
+	background-color:white;
+}
+*/
+/* design */
+.design {
+  padding: 4.5rem 0;
+}
+
+.title {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.title h2 {
+  font-family: var(--Playfair);
+  font-size: 2.4rem;
+}
+
+.title p {
+  text-transform: uppercase;
+  padding: 0.6rem 0;
+}
+
+.design-content {
+  margin: 2rem 0;
+}
+
+.design-item {
+  cursor: pointer;
+  margin: 1.5rem 0;
+}
+
+.design-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.design-img::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.design-img img {
+  width: 100%;
+  height: 300px;
+  transition: all 0.5s ease;
+  object-fit: cover;
+}
+
+.design-item:hover img {
+  transform: scale(1.1);
+}
+
+.design-img span:first-of-type {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  background: var(--exDark);
+  color: #fff;
+  padding: 0.25rem 1rem;
+}
+
+.design-img span:last-of-type {
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  right: 10px;
+  color: black;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.design-title {
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  color: #000;
+}
+
+.design-title a {
+  color: black;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: var(--Playfair);
+}
+
+/* Les virgules permettent d'appliquer des propriétés à plusieurs éléments d'un coup
+Ici on applique des propriétés de style à tous les 'headers' (titres) de 1 à 6 */
+h1,
+h2,
+h3 {
+  font-family: verdana;
+  color: rgb(15, 14, 14);
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+
+  font-family: 'Lobster', cursive;
+
+  font-family: 'Merriweather', serif;
+}
+
+/* Si un élément apparaît plusieurs fois, les propriétés seront combinées.
+On se sert de ça pour rendre chaque header différent malgré leurs points communs*/
+/*h1 {
+	background-color:rgb(180, 80, 97);
+	border-radius: 30px;
+	padding: 10px 0px;
+}*/
+h1 {
+  /*background-color:white;*/
+  border-radius: 30px;
+  padding: 10px 0px;
+}
+
+h2 {
+  border-radius: 25px;
+  padding: 9px 0px;
+}
+
+h3 {
+  border-radius: 20px;
+  padding: 8px 0px;
+  margin: 0 50px;
+}
+
+/* Propriétés des paragraphes, s'appliquent à tous*/
+p {
+  color: #333333;
+  font-family: verdana;
+  font-size: 14px;
+  padding: 0px 2%;
+}
+
+p.date {
+  margin: 20px 0;
+  padding: 0px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Propriétés pour les textes italiques*/
+i {
+  color: #777777;
+}
+
+/* Propriétés pour les textes gras*/
+b {
+  color: #000000;
+}
+
+/*Même chose pour la classe "goodluck"*/
+.goodluck {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* On peut combiner un tag et une classe ainsi : ces propriétés s'appliqueront
+aux images qui sont également de la classe "center" */
+/*
+img.center{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 80px;
+	margin-bottom: 30px;
+}*/
+/*
+img{
+    width: 100%;
+    display: block;
+}
+*/
+/* Toutes les balises peuvent avoir des propriétés de style, même <hr>!
+En revanche, certaines propriétés ne fonctionnent pas sur certaines : <hr> n'a pas de texte, donc 
+les propriétés liées au texte y sont sans effet*/
+hr {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+/* On définit des propriétés pour deux classes en même temps en les séparant par des virgules*/
+/*
+ .footer{
+	background-color:rgb(129, 27, 52);
+	font-family: 'Merriweather', serif;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background: url(/images/back.jpg),linear-gradient(rgba(0,0,0,0,4),rgba(0,0,0,0,4)),center/cover no-repeat fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+}*/
+/* footer */
+.footer {
+  font-family: 'Merriweather', serif;
+  margin: 0px;
+  background: var(--exDark);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.socials {
+  display: flex !important;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+.socials a {
+  border: 2px solid #fff;
+  color: #fff;
+  display: block;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  margin: 0 0.3rem;
+  transition: all 0.5s ease;
+}
+
+.socials a:hover {
+  background: #fff;
+  color: var(--exDark);
+}
+
+.footer span {
+  margin-top: 1rem;
+  display: block;
+  font-family: var(--Playfair);
+  letter-spacing: 2px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 540px) {
+  .navbar-nav a {
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
+  }
+
+  .banner-title {
+    font-size: 5rem;
+  }
+
+  .banner form {
+    margin-top: 1.4rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar .container {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+  }
+
+  .search-input {
+    padding: 0.8rem 0;
+  }
+
+  .design-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .design-item {
+    margin: 0;
+  }
+
+  .blog-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .blog-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+    align-items: center;
+  }
+
+  .about-content img {
+    max-width: 400px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .design-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+header {
+  min-height: 100vh;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-image: url(https://www.esl.fr/sites/default/files/styles/image_gallery/public/city/gallery/esl-tokyo-language-stay-hero.jpg?itok=WJgqvh34);*/
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  flex-direction: column;
+  justify-content: stretch;
+  font-family: 'Merriweather', serif;
+  flex-wrap: wrap;
+}
+
+/* Lorsque deux éléments se suivent sans séparateur, cela signifie une hiérarchie:
+ici, nous attribuons des propriétés aux "<h1> qui sont à l'intérieur d'éléments de classe header"*/
+/*.header h1{
+	background-color:#e491a3;
+}*/
+.navbar {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.2rem;
+}
+
+.navbar-brand {
+  color: black;
+  font-size: 2rem;
+  display: block;
+  text-align: left;
+  text-decoration: none;
+  font-family: var(--Playfair);
+  letter-spacing: 1px;
+}
+
+.navbar-nav {
+  padding: 0.8rem 0 0.2rem 0;
+  text-align: center;
+}
+
+.navbar-nav a {
+  text-transform: uppercase;
+  font-family: var(--Roboto);
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.4rem 0.1rem;
+  letter-spacing: 3px;
+  transition: opacity 0.5s ease;
+}
+
+.navbar-nav a:hover {
+  opacity: 0.7;
+}
+
+.search-input {
+  font-family: var(--Roboto);
+  font-size: 1.1rem;
+  width: 100%;
+  outline: 0;
+  padding: 0.6rem 0;
+  border: none;
+}
+
+.search-input::placeholder {
+  text-transform: capitalize;
+}
+
+.search-btn {
+  width: 40px;
+  font-size: 1.1rem;
+  color: var(--dark);
+  border: none;
+  background: transparent;
+  outline: 0;
+  cursor: pointer;
+}
+
+.banner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.banner-title {
+  font-size: 3rem;
+  font-family: var(--Playfair);
+  line-height: 1.2;
+}
+
+.banner-title span {
+  font-family: var(--Playfair);
+  color: var(--exDark);
+}
+
+.banner p {
+  padding: 1rem 0 2rem 0;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  font-family: 'IBM Plex Serif', serif;
+
+  font-family: 'Josefin Sans', sans-serif;
+
+  font-family: 'Lobster', cursive;
+
+  font-family: 'Merriweather', serif;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  word-spacing: 2px;
+}
+
+.banner form {
+  background: #fff;
+  border-radius: 2rem;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer {
+  display: block;
+  text-align: center;
+
+  width: 100%;
+  height: 30px;
+  position: fixed;
+}
+
+/*On peut combiner des hiérarchies et une déclaration multiples pour être encore plus efficace!*/
+.header hr,
+.footer hr {
+  /*margin:10px 0px;
+	color:white;
+	height:3px;*/
+  background-color: white;
+}
+
+.footer h3 {
+  font-size: 20px;
+}
+
+.footer social_media {
+  display: flex;
+}
+
+.footer social_media {
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+/*Autre hiérarchie : les <p> à l'intérieur d'éléments de classe "footer"*/
+.footer p {
+  font-family: verdana;
+  margin-top: 30px;
+  display: flex;
+  color: white;
+}
+
+/*
+a{
+    color: #000;
+}
+/*Les balises de lien <a> sont particulières car elles ont plusieurs états, qui ont chacun leur style*/
+/*link : état lorsque la destination du lien n'a pas été visitée*/
+/*
+a:link {
+	font-size:1.2em;
+	font-weight:bold;
+	color:rgb(60, 106, 128);
+	text-decoration:none;
+}
+
+/*visited : état lorsque la destination du lien a déjà été visitée précédemment*/
+/*
+a:visited {
+	color:rgb(197, 200, 209);
+}
+
+/*hover : état lorsque la souris passe au dessus du lien*/
+/*
+a:hover{
+	color:rgb(180, 180, 199);
+}
+
+/*active : état lorsque l'utilisateur est en train de cliquer sur le lien*/
+/*
+a:active{
+	color:rgb(190, 190, 206);
+}
+
+/*Annoncer les couleurs dabs un paragraphe gros et centré*/
+
+.couleur {
+  color: #666666;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  text-shadow: -1px -1px 0 rgb(19, 18, 18), 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+/*Style pour "warnings", des textes pour dire de faire attention*/
+.warning {
+  font-weight: bold;
+  color: darkred;
+}
+
+h3.warning {
+  color: white;
+  background-color: darkred;
+}
+
+/*Lien de fin de page sur exos PHP*/
+.endlink,
+.backlink {
+  font-size: 1.5em;
+  text-align: right;
+  float: right;
+  height: 30px;
+}
+
+/*Lien de fin de page (retour) sur exos PHP*/
+.backlink {
+  font-size: 1.5em;
+  text-align: left;
+  float: left;
+  height: 30px;
+}
+
+/*
+form {
+    margin: 3 auto;
+    width: 80%;
+    padding: 1em;
+    border: 1px solid #CCCCCC;
+    text-align: center;
+}
+
+form div {
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+label {
+    font-family: verdana;
+    color: rgb(20, 19, 19);
+    font-weight: bold;
+    display: inline-block;
+    width: 80px;
+    text-align: left;
+    padding: 10px 100px;
+    background-color: rgb(235, 235, 245);
+    border-radius: 50px;
+}
+
+input,
+textarea {
+    font: 1em sans-serif;
+    width: 70%;
+    box-sizing: border-box;
+    border: 1px solid #d18d8d;
+    margin-left: 40px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #000000;
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
+}
+
+.formbutton {
+    clear: both;
+    background-color: #EEEEEE;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+button {
+    color: white;
+    font-weight: bold;
+    margin-left: .5em;
+    background-color: rgb(95, 121, 146);
+    padding: 8px 30px;
+    border-radius: 25px;
+}
+
+button:hover {
+    font-size: 1.1em;
+    padding: 9px 32px;
+    background-color: rgb(100, 153, 189);
+}
+
+.msg,
+.msg p {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.successMessage {
+    background-color: green;
+}
+
+.errorMessage {
+    background-color: red;
+}
+
+.IDzone {
+    margin-top: 10px;
+    padding: 0;
+    background-color: rgb(116, 123, 126);
+    border: 1px solid rgb(133, 133, 163);
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.IDzone form {
+    margin: 0 auto;
+    width: 80%;
+    padding: 0;
+    text-align: center;
+    border: 0;
+    overflow: auto;
+}
+
+#ID_name {
+    margin-top: 0;
+    padding: 0;
+    float: left;
+    font-weight: bold;
+    text-align: left;
+    width: 50%;
+}
+
+#ID_name p {
+    color: #2a6477;
+    font-size: 1.3em;
+    margin-top: 14px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+#ID_myblog {
+    margin: 0;
+    padding: 0;
+}
+
+#ID_myblog p {
+    margin: 0;
+    padding-top: 18px;
+    font-size: 0.8em;
+}
+
+#ID_logout {
+    margin-top: 8px;
+    padding: 0;
+    float: right;
+    width: 90%;
+    text-align: right;
+}
+
+#ID_logout button {
+    color: white;
+    font-weight: bold;
+    margin-left: .5em;
+    background-color: #5898ad;
+    padding: 8px 30px;
+    border-radius: 25px;
+    font-size: 0.9em;
+}
+
+#ID_logout button:hover {
+    color: white;
+    font-weight: bold;
+    margin-left: .5em;
+    background-color: #325864;
+    padding: 8px 30px;
+    border-radius: 25px;
+    font-size: 0.9em;
+}
+
+.blogPost {
+    margin: 20px auto;
+    width: 90%;
+    border: 4px double pink;
+    border-radius: 25px;
+}
+
+.postContent {
+    margin: 10px auto;
+    width: 85%;
+}
+
+.postTitle {
+    background-color: pink;
+    border-radius: 22px 22px 0px 0px;
+    overflow: auto;
+}
+
+.postTitle h3 {
+    background-color: pink;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.postTitle p {
+    margin: 0px 0px 10px 70px;
+    padding: 0;
+    color: lightblue;
+    font-style: italic;
+}
+
+.postModify {
+    float: right;
+}
+
+.postModify form {
+    float: right;
+    margin: 0px 30px 0 0;
+    padding: 0px;
+    border: 0;
+}
+
+.postModify form button {
+    margin: 20px 0px 0px 0px;
+}
+
+.postAuthor {
+    float: right;
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: right;
+    margin: 20px 10px 0px 0px;
+}
+
+.HideFormContainer {
+    float: right;
+    width: 25%;
+    text-align: left;
+}
+
+#passHide {
+    margin-top: 62px;
+    padding-left: 10px;
+}
+
+.formfield {
+    text-align: right;
+    width: 100%;
+}*/
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,24 @@
+<div class="design-item" style="width: 19rem;">
+    <div class="design-img" >
+        <img src={{menu.img}}  >
+        <span><i class="far fa-heart"></i> {{menu.likes}}</span>
+    </div>
+    <div class="design-title">
+        <h4 class="card-title" [ngClass]="{'fontColor size20 backgroundColor' : menu.nom.includes('C')}"> {{menu.nom}}</h4>
+        <p class="card-text">Description : {{menu.description}}</p>
+        <p class="card-text">Prix : {{menu.prix}} € </p>
+        <ng-template #blockGratuit>
+            <p class="card-text">Prix : Gratuit </p>
+        </ng-template>
+    
+    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary btn-sm" (click)="increment($event)">👍🏻</button>
+        <button type="button" class="btn btn-secondary btn-sm" (click)="decrement($event)">👎🏻</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+

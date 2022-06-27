@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-2">
+        <div class="btn-group-vertical">
+            <button type="button" class="button-two" *ngFor="let c of categorie"
+                (click)='FilterbyCat(c)'><span>{{c.name}}</span></button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <ng-container *ngFor="let restaurantVar of RestaurantArray; let i = index ">
+                <div class="col-4">
+                    <app-restaurant [restaurant]="restaurantVar" [res_idx]="restaurantVar.id"></app-restaurant>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
