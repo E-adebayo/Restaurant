@@ -257,17 +257,17 @@ nav {
 }
 
 .login-button {
-    background: #e67e22;
-    color: white !important;
+    color:  #d35400 !important;
+    font-weight: bold;
 }
 
 .login-button:hover {
-    background: #d35400 !important;
+    background: white !important;
 }
 
 .logout-button {
-    background: none;
-    border: none;
+
+  border: none;
     cursor: pointer;
     padding: 0.5rem 1rem;
     color: #e53e3e;
@@ -277,6 +277,8 @@ nav {
     gap: 0.5rem;
     border-radius: 0.5rem;
     transition: all 0.2s ease;
+    font-weight: bold;
+
 }
 
 .logout-button:hover {
