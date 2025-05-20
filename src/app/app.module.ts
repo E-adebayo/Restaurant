@@ -1,5 +1,6 @@
 import { RestaurantserviceService } from './services/restaurantservice.service';
 import { CategorieserviceService } from './services/categorieservice.service';
+import { AuthService } from './services/auth/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AdminModule } from './admin/admin.module';
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     HttpClientModule,
     RestaurantserviceService,
-    CategorieserviceService],
+    CategorieserviceService,
+    AuthService],
   bootstrap: [AppComponent]
 
 })

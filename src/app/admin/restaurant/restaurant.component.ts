@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class RestaurantComponent implements OnInit {
   @Input() restaurant!: Restaurant
   @Input() res_idx!: number
+  
   constructor(private service: RestaurantserviceService, private routeur: Router) { }
 
   ngOnInit(): void {

@@ -1,31 +1,82 @@
- <section id="full">
-    <div class="container">
-           
-                <div class="about-content">
-                    <div>
-                        <img src={{restaurant.img}}>
-                    </div>
-                    <div class="about-text">
-                            <h2>{{restaurant.nom}}</h2>
-                        <p>Description: {{restaurant.description}}</p>
-                        <p>Adresse: {{restaurant.adresse}}</p>
-                        <p>Code postale: {{restaurant.codepostal}}</p>
-                        <p>Likes: {{restaurant.likes}}</p>
+<section id="full" class="restaurant-detail">
+    <!-- Restaurant header section with background image -->
+    <div class="restaurant-header" [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(' + restaurant.img + ')'">
+        <div class="container">
+            <h1 class="restaurant-title">{{restaurant.nom}}</h1>
+            <div class="restaurant-meta">
+                <span class="category-badge">{{categoryName}}</span>
+                <span class="likes-badge"><i class="far fa-heart"></i> {{restaurant.likes}}</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Restaurant details section -->
+    <div class="container main-content">
+        <div class="row">
+            <!-- Left column with image and details -->
+            <div class="col-md-5">
+                <div class="restaurant-image-container">
+                    <img [src]="restaurant.img" alt="{{restaurant.nom}}" class="restaurant-image">
+                </div>
+            </div>
+            
+            <!-- Right column with information -->
+            <div class="col-md-7">
+                <div class="restaurant-info">
+                    <h2>À propos de ce restaurant</h2>
+                    <p class="restaurant-description">{{restaurant.description}}</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Adresse</h4>
+                                <p>{{restaurant.adresse}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Code postal</h4>
+                                <p>{{restaurant.codepostal}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <h4>Catégorie</h4>
+                                <p>{{categoryName}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-     
-    </div><br><br><br>
-    
-    <div class="container">
-         <div class="row">
-                        <ng-container *ngFor="let menuVar of menus; let i = index ">
-                            <div class="col col-4">
-                                <app-menu [menu]="menuVar" [menu_idx]="i"></app-menu>
-                            </div>
-                        </ng-container>
-                
             </div>
-      
+        </div>
+    </div>
     
-</div>
- </section>
+    <!-- Menu section -->
+    <div class="menu-section">
+        <div class="container">
+            <div class="menu-header">
+                <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Menu</h2>
+                <button *ngIf="isLoggedIn$ | async" class="add-menu-btn" [routerLink]="['/addmenu', getId()]">
+                    <i class="fas fa-plus"></i> Ajouter un Menu
+                </button>
+            </div>
+            <div class="row menu-grid">
+                <ng-container *ngFor="let menuVar of menus; let i = index">
+                    <div class="col-lg-4 col-md-6 menu-item-col">
+                        <app-menu [menu]="menuVar" [menu_idx]="i"></app-menu>
+                    </div>
+                </ng-container>
+                
+                <!-- Empty state if no menu items -->
+                <div *ngIf="!menus || menus.length === 0" class="col-12 empty-menu">
+                    <p>Aucun menu disponible pour ce restaurant.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

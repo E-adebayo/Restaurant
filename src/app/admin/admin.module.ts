@@ -13,8 +13,6 @@ import { AddrestaurantComponent } from './addrestaurant/addrestaurant.component'
 import { RestaurantFullComponent } from './restaurant-full/restaurant-full.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CategorieserviceService } from '../services/categorieservice.service';
-import { RestaurantserviceService } from '../services/restaurantservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 

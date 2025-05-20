@@ -1,17 +1,32 @@
-<div class="row">
-    <div class="col-2">
-        <div class="btn-group-vertical">
-            <button type="button" class="button-two" *ngFor="let c of categorie"
-                (click)='FilterbyCat(c)'><span>{{c.name}}</span></button>
+<div class="restaurant-list-container">
+    <aside class="categories-sidebar">
+        <div class="categories-wrapper">
+            <h3 class="categories-title">Catégories</h3>
+            <div class="categories-list">
+                <button type="button" 
+                        class="category-button" 
+                        *ngFor="let c of categorie"
+                        (click)='FilterbyCat(c)'
+                        [class.active]="currentCategory?.id === c.id">
+                    <span class="category-name">{{c.name}}</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="add-restaurant-btn" *ngIf="isLoggedIn$ | async">
+                <button type="button" class="btn btn-primary" [routerLink]="['/addrestaurant']">
+                    <i class="fas fa-plus"></i> Ajouter un Restaurant
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="row">
-            <ng-container *ngFor="let restaurantVar of RestaurantArray; let i = index ">
-                <div class="col-4">
+    </aside>
+    
+    <main class="restaurants-grid">
+        <div class="grid-container">
+            <ng-container *ngFor="let restaurantVar of RestaurantArray; let i = index">
+                <div class="grid-item">
                     <app-restaurant [restaurant]="restaurantVar" [res_idx]="restaurantVar.id"></app-restaurant>
                 </div>
             </ng-container>
         </div>
-    </div>
+    </main>
 </div>

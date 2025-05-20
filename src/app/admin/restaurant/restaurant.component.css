@@ -1,0 +1,189 @@
+
+.restaurant-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-wrapper {
+    position: relative;
+    padding-top: 66.67%; /* 3:2 aspect ratio */
+    overflow: hidden;
+}
+
+.card-img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.restaurant-card:hover .card-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.restaurant-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.likes-badge {
+    align-self: flex-end;
+    background-color: rgba(255, 140, 0, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.likes-badge i {
+    animation: pulse 1.5s infinite;
+}
+
+.interaction-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-like, .btn-dislike {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-like:hover {
+    background: #28a745;
+    color: white;
+    transform: scale(1.1);
+}
+
+.btn-dislike:hover {
+    background: #dc3545;
+    color: white;
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.restaurant-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.location {
+    color: #666;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.location i {
+    color: #FF8C00;
+}
+
+.btn-more {
+    background: none;
+    border: none;
+    color: #FF8C00;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-more:hover {
+    color: #ff6b00;
+    transform: translateX(5px);
+}
+
+.btn-more i {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-more:hover i {
+    transform: translateX(3px);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .restaurant-card {
+        margin-bottom: 20px;
+    }
+
+    .card-overlay {
+        opacity: 1;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+    }
+
+    .restaurant-name {
+        font-size: 1.2rem;
+    }
+
+}

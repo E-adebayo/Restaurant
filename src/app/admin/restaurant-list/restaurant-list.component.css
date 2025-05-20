@@ -1,77 +1,189 @@
-.card-top {
-    position: relative;
+.restaurant-list-container {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem;
+    min-height: calc(100vh - var(--header-height, 64px));
+    background: #f8f9fa;
+}
+
+.categories-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 1.5rem;
+    height: fit-content;
+}
+
+.categories-wrapper {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+}
+
+.categories-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--exDark, #2d3436);
+    margin: 0 0 1.25rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.categories-list {
     display: flex;
     flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: .25rem;
+    gap: 0.75rem;
 }
 
-.item img {
-    width: 64px;
+.category-button {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.item {
-    margin: 0px 15px;
-    text-align: center;
+.category-button:hover {
+    background: #f7f8f9;
+    transform: translateX(4px);
 }
 
-.item a:hover {
-    color: blue;
+.category-button.active {
+    background: #d35400;
+    color: white;
 }
 
-.card {
-    padding: 20px;
-    margin: 50px;
+.category-name {
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
-.card img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 15px;
-    transition: 0.3s ease-in-out;
+.category-button i {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
 }
 
-.card img:hover {
-    transition: 0.3s ease-in-out;
-    transform: scale(1.1);
+.category-button:hover i {
+    transform: translateX(4px);
+    opacity: 1;
 }
 
-.button-two {
-    border-radius: 4px;
+.category-button.active i {
+    opacity: 1;
+}
+
+.restaurants-grid {
+    flex: 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.grid-item {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .categories-sidebar {
+        width: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .restaurant-list-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .categories-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    .categories-wrapper {
+        margin-bottom: 1.5rem;
+    }
+
+    .categories-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .restaurant-list-container {
+        padding: 0.75rem;
+    }
+
+    .categories-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-container {
+        gap: 1rem;
+    }
+}
+
+.add-restaurant-btn {
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+.add-restaurant-btn button {
+    width: 100%;
+    padding: 0.875rem;
     background-color: #d35400;
     border: none;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
+    color: white;
+    border-radius: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
 }
 
-
-.button-two span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    color: #fff;
+.add-restaurant-btn button:hover {
+    background-color: #e67e22;
+    transform: translateY(-2px);
 }
 
-.button-two span:after {
-    content: '»';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-
-.button-two:hover span {
-    padding-right: 25px;
-}
-
-.button-two:hover span:after {
-    opacity: 1;
-    right: 0;
+.add-restaurant-btn i {
+    font-size: 0.9rem;
 }

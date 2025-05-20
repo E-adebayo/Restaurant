@@ -1,21 +1,27 @@
-<div class="design-item" style="width: 19rem;">
-    <div class="design-img" >
-        <img src={{menu.img}}  >
-        <span><i class="far fa-heart"></i> {{menu.likes}}</span>
+<div class="menu-card">
+    <div class="menu-image">
+        <img [src]="menu.img" [alt]="menu.nom">
+        <div class="likes-overlay">
+            <i class="far fa-heart"></i>
+            <span>{{menu.likes}}</span>
+        </div>
     </div>
-    <div class="design-title">
-        <h4 class="card-title" [ngClass]="{'fontColor size20 backgroundColor' : menu.nom.includes('C')}"> {{menu.nom}}</h4>
-        <p class="card-text">Description : {{menu.description}}</p>
-        <p class="card-text">Prix : {{menu.prix}} € </p>
-        <ng-template #blockGratuit>
-            <p class="card-text">Prix : Gratuit </p>
-        </ng-template>
-    
-    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary btn-sm" (click)="increment($event)">👍🏻</button>
-        <button type="button" class="btn btn-secondary btn-sm" (click)="decrement($event)">👎🏻</button>
+    <div class="menu-content">
+        <h3 class="menu-title" [ngClass]="{'highlight': menu.nom.includes('C')}">{{menu.nom}}</h3>
+        <p class="menu-description">{{menu.description}}</p>
+        <div class="menu-price">
+            <span *ngIf="menu.prix > 0">{{menu.prix}} €</span>
+            <span *ngIf="menu.prix === 0">Gratuit</span>
+        </div>
+        <div class="menu-actions">
+            <button class="action-btn like" (click)="increment($event)" title="J'aime">
+                <i class="fas fa-thumbs-up"></i>
+            </button>
+            <button class="action-btn dislike" (click)="decrement($event)" title="Je n'aime pas">
+                <i class="fas fa-thumbs-down"></i>
+            </button>
+        </div>
     </div>
-  </div>
 </div>
 
 

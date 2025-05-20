@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,17 +11,25 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
   
   id!: number
-  @Input() public isLoggedIn: boolean
+  isLoggedIn: boolean = false;
+  isLoggedIn$: Observable<boolean>;
 
-  constructor(private activatedroute: ActivatedRoute, private router: Router) {
-    this.isLoggedIn = localStorage.getItem("isLoggedIn") === "yes";
+  constructor(
+    private activatedroute: ActivatedRoute, 
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.isLoggedIn$ = this.authService.isLoggedIn$;
   }
 
   ngOnInit(): void {
-    window.addEventListener("storage", ()=>{
-      console.log("logg firefed ")
-      this.isLoggedIn = localStorage.getItem("isLoggedIn") === "yes"
-    }) 
+    // Subscribe to the auth service to get real-time login state updates
+    this.authService.isLoggedIn$.subscribe(
+      loggedIn => {
+        this.isLoggedIn = loggedIn;
+        console.log('Login state changed:', loggedIn);
+      }
+    );
   }
 
   addmenu() {
@@ -29,9 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem("isLoggedIn")
-    this.router.navigate(['']);/* 
-    window.location.reload(); */
+    this.authService.logout();
   }
 
 }

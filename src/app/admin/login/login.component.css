@@ -1,0 +1,63 @@
+.form-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/back.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-500);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--gray-500);
+}
+
+.password-toggle:hover {
+  color: var(--gray-700);
+}
+
+.form-input {
+  padding-left: 2.5rem !important;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.divider span {
+  padding: 0 1rem;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-family: var(--Quicksand);
+}

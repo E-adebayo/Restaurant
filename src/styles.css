@@ -2,6 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lobster&family=Merriweather:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,200&family=Josefin+Sans&family=Lobster&family=Merriweather:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,200&family=Josefin+Sans&family=Lobster&family=Merriweather:ital,wght@1,300&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+:root {
+  --Playfair: 'Playfair Display', serif;
+  --Quicksand: 'Quicksand', sans-serif;
+  --Roboto: 'Roboto', sans-serif;
+  --dark: #3c393d;
+  --primary: #2a9d8f;
+  --primary-hover: #238b7e;
+  --error: #e63946;
+  --success: #2a9d8f;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+}
+
 /* Body a aussi un style, malgré le fait qu'il inclue toute la fenêtre */
 /*
 body {
@@ -11,16 +34,6 @@ body {
 	padding: 12px 25px;
 }
 */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-:root {
-  --Playfair: 'Playfair Display', serif;
-  --Quicksand: 'Quicksand', sans-serif;
-  --Roboto: 'Roboto', sans-serif;
-  --dark: #3c393d;
-  --exDark: #2b2b2b;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -861,7 +874,8 @@ button:hover {
 .formfield {
     text-align: right;
     width: 100%;
-}*/
+}
+
 html,
 body {
   height: 100%;
@@ -878,4 +892,132 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Form Styles */
+.form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  padding: 2rem;
+}
+
+.form-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  padding: 2.5rem;
+  transition: transform 0.2s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-2px);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.form-title {
+  font-family: var(--Playfair);
+  color: var(--dark);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: var(--gray-600);
+  font-family: var(--Quicksand);
+  font-size: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--Quicksand);
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 0.5rem;
+  font-family: var(--Quicksand);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+}
+
+.form-input.error {
+  border-color: var(--error);
+}
+
+.form-error {
+  color: var(--error);
+  font-size: 0.875rem;
+  font-family: var(--Quicksand);
+  margin-top: 0.375rem;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: var(--Quicksand);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.form-submit-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.form-submit-btn:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.form-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+i.fas {
+  color: var(--gray-500);
 }

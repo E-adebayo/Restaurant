@@ -1,13 +1,29 @@
-<div class="design-item" (click)="readMore()">
-    <div class="design-img">
-        <img src={{restaurant.img}}>
-        <span><i class="far fa-heart"></i> {{restaurant.likes}}</span>
-        <span>{{restaurant.nom}}</span>
+<div class="restaurant-card" (click)="readMore()">
+    <div class="card-img-wrapper">
+        <img [src]="restaurant.img" [alt]="restaurant.nom">
+        <div class="card-overlay">
+            <span class="likes-badge">
+                <i class="far fa-heart"></i> {{restaurant.likes}}
+            </span>
+            <div class="interaction-buttons">
+                <button type="button" class="btn-like" (click)="increment($event)" title="J'aime">
+                    <i class="fas fa-thumbs-up"></i>
+                </button>
+                <button type="button" class="btn-dislike" (click)="decrement($event)" title="Je n'aime pas">
+                    <i class="fas fa-thumbs-down"></i>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="design-title" >    
-        <div class="btn-group btn-group-sm" role="group">
-            <button type="button" class="btn btn-primary btn-sm" (click)="increment($event)">👍🏻</button>
-            <button type="button" class="btn btn-secondary btn-sm" (click)="decrement($event)">👎🏻</button>
+    <div class="card-content">
+        <h3 class="restaurant-name">{{restaurant.nom}}</h3>
+        <div class="restaurant-footer">
+            <span class="location">
+                <i class="fas fa-map-marker-alt"></i> {{restaurant.adresse}}
+            </span>
+            <button class="btn-more" title="Voir plus de détails">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 </div>
