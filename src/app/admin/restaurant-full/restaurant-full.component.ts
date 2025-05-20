@@ -1,5 +1,5 @@
-import { RestaurantserviceService } from './../../restaurantservice.service';
-import { MenuService } from './../../menu.service';
+import { RestaurantserviceService } from './../../services/restaurantservice.service';
+import { MenuService } from './../../services/menu.service';
 import { Restaurant } from './../../class/restaurant';
 import { Menu } from './../../class/menu';
 import { Component, OnInit } from '@angular/core';

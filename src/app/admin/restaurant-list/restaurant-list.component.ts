@@ -1,5 +1,5 @@
-import { CategorieserviceService } from './../../categorieservice.service';
-import { RestaurantserviceService } from './../../restaurantservice.service';
+import { CategorieserviceService } from './../../services/categorieservice.service';
+import { RestaurantserviceService } from './../../services/restaurantservice.service';
 import { Categorie } from './../../class/categorie';
 import { Restaurant } from './../../class/restaurant';
 import { Component, OnInit } from '@angular/core';

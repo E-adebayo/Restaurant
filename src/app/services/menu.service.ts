@@ -1,5 +1,5 @@
-import { Restaurant } from './class/restaurant';
-import { Menu } from './class/menu';
+import { Restaurant } from '../class/restaurant';
+import { Menu } from '../class/menu';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -39,4 +39,3 @@ export class MenuService {
   }
 
 }
-

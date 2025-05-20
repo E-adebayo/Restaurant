@@ -1,5 +1,5 @@
 import { AdminRoutingModule } from './../admin-routing.module';
-import { RestaurantserviceService } from './../../restaurantservice.service';
+import { RestaurantserviceService } from './../../services/restaurantservice.service';
 import { Restaurant } from './../../class/restaurant';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

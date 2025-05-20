@@ -1,5 +1,5 @@
-import { Categorie } from './class/categorie';
-import { Restaurant } from './class/restaurant';
+import { Categorie } from '../class/categorie';
+import { Restaurant } from '../class/restaurant';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
