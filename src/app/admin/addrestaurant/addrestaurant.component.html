@@ -118,6 +118,30 @@
                         </option>
                     </select>
                 </div>
+
+                <!-- Add New Category Section -->
+                <div class="new-category-section" *ngIf="showAddCategory">
+                    <div class="input-container">
+                        <i class="fas fa-plus input-icon"></i>
+                        <input
+                            class="form-input"
+                            type="text"
+                            placeholder="Nom de la nouvelle catégorie"
+                            [(ngModel)]="newCategoryName"
+                            [ngModelOptions]="{standalone: true}"
+                        />
+                    </div>
+                    <div class="button-container">
+                        <button type="button" class="btn btn-secondary" (click)="cancelAddCategory()">Annuler</button>
+                        <button type="button" class="btn btn-primary" (click)="saveNewCategory()" [disabled]="!newCategoryName">
+                            Ajouter la catégorie
+                        </button>
+                    </div>
+                </div>
+
+                <button type="button" class="add-category-btn" (click)="toggleAddCategory()" *ngIf="!showAddCategory">
+                    <i class="fas fa-plus"></i> Ajouter une nouvelle catégorie
+                </button>
             </div>
 
             <div class="form-group">

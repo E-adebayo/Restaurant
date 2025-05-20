@@ -121,15 +121,25 @@ export class AddmenuComponent implements OnInit {
 
   async onFileSelected(event: any): Promise<void> {
     const file = event.target.files[0] as File;
-    if (!file) return;
+    
+    if (!file) {
+      // If no file is selected, use default image
+      this.menu.img = './assets/images/default-menu.jpg';
+      this.imagePreview = this.menu.img;
+      return;
+    }
 
     if (!this.isImage(file.name)) {
       alert("Format de fichier non supporté. Veuillez choisir une image (jpg, jpeg, png)");
+      this.menu.img = './assets/images/default-menu.jpg';
+      this.imagePreview = this.menu.img;
       return;
     }
 
     if (file.size > 5 * 1024 * 1024) {
       alert("L'image ne doit pas dépasser 5MB");
+      this.menu.img = './assets/images/default-menu.jpg';
+      this.imagePreview = this.menu.img;
       return;
     }
 
@@ -140,6 +150,8 @@ export class AddmenuComponent implements OnInit {
     } catch (error) {
       console.error('Erreur lors du chargement de l\'image:', error);
       alert("Erreur lors du chargement de l'image");
+      this.menu.img = './assets/images/default-menu.jpg';
+      this.imagePreview = this.menu.img;
     }
   }
 

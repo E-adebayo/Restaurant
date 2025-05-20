@@ -19,6 +19,8 @@ export class AddrestaurantComponent implements OnInit {
   public addrestaurantForm!: FormGroup;
   public selectedFile!: File;
   public isSubmitting = false;
+  public showAddCategory = false;
+  public newCategoryName = '';
 
   constructor(
     private service: RestaurantserviceService,
@@ -69,6 +71,42 @@ export class AddrestaurantComponent implements OnInit {
     this.service.getDataLength();
   }
 
+  toggleAddCategory(): void {
+    this.showAddCategory = !this.showAddCategory;
+  }
+
+  cancelAddCategory(): void {
+    this.showAddCategory = false;
+    this.newCategoryName = '';
+  }
+
+  async saveNewCategory(): Promise<void> {
+    if (!this.newCategoryName) return;
+
+    try {
+      // Get the next available category ID
+      const data = await firstValueFrom(this.servCate.getData());
+      const maxId = Math.max(...data.map(cat => cat.id));
+      const newCategoryId = maxId + 1;
+
+      // Create new category
+      const newCategory = new Categorie(newCategoryId, this.newCategoryName);
+      
+      const addedCategory = await firstValueFrom(this.servCate.addCategorie(newCategory));
+      this.categorie.push(addedCategory);
+      
+      // Select the new category
+      this.restaurant.categorie = addedCategory.id;
+      
+      // Reset the form
+      this.showAddCategory = false;
+      this.newCategoryName = '';
+    } catch (error) {
+      console.error('Error adding new category:', error);
+      // You could add a toast notification here
+    }
+  }
+
   onlyNumber(event: KeyboardEvent): boolean {
     const charCode = event.which ? event.which : event.keyCode;
     return !(charCode > 31 && (charCode < 48 || charCode > 57));
@@ -76,24 +114,37 @@ export class AddrestaurantComponent implements OnInit {
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files?.length) {
-      const file = input.files[0];
-      
-      if (!file.type.match(/image\/(jpeg|jpg|png)/)) {
-        // You could add a toast notification here
-        console.error('Format de fichier non supporté');
-        return;
-      }
-
-      this.selectedFile = file;
-      
-      // Create preview
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.restaurant.img = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+    
+    if (!input.files?.length) {
+      // If no file is selected, use default image
+      this.restaurant.img = './assets/images/default-restaurant.jpg';
+      return;
     }
+
+    const file = input.files[0];
+    
+    if (!file.type.match(/image\/(jpeg|jpg|png)/)) {
+      alert('Format de fichier non supporté. Veuillez choisir une image (jpg, jpeg, png)');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert('L\'image ne doit pas dépasser 5MB');
+      return;
+    }
+
+    this.selectedFile = file;
+    
+    // Create preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.restaurant.img = reader.result as string;
+    };
+    reader.onerror = () => {
+      alert('Erreur lors du chargement de l\'image');
+      this.restaurant.img = './assets/images/default-restaurant.jpg';
+    };
+    reader.readAsDataURL(file);
   }
 
   onCategorySelected(event: Event): void {

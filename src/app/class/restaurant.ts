@@ -18,8 +18,11 @@ export class Restaurant {
         this.codepostal = codepostal
         this.categorie = categorie
         this.likes = likes
-        if (img == undefined)
-            img = `./assets/images/${this.id}.png`
+        if (!img) {
+            this.img = './assets/images/default-restaurant.jpg';
+        } else {
+            this.img = img;
+        }
 
     }
 }

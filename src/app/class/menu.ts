@@ -18,8 +18,11 @@ export class Menu {
         this.prix = prix
         this.likes = likes
         this.restaurant_id = restaurant_id
-        if (img == undefined)
-            img = `./assets/img/${this.id}.png`
+        if (!img) {
+            this.img = './assets/images/default-menu.jpg';
+        } else {
+            this.img = img;
+        }
 
     }
 
