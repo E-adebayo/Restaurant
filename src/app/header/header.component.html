@@ -1,44 +1,57 @@
-<head>
-    <script src="https://kit.fontawesome.com/a357ae0183.js" crossorigin="anonymous"></script>
-</head>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-custom navbar-mainbg">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" aria-controls="jumbotronExample" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+<nav class="header">
+    <div class="header-container">
+        <div class="header-brand">
+            <a [routerLink]="['']" class="brand-link">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Restaurants</span>
+            </a>
+        </div>
+
+        <button class="mobile-menu-button" [class.is-active]="isMobileMenuOpen" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation">
+            <i class="fas" [class.fa-bars]="!isMobileMenuOpen" [class.fa-times]="isMobileMenuOpen"></i>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto" style="color: black;">
+        <div class="header-nav" [class.is-open]="isMobileMenuOpen">
+            <ul class="nav-list">
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #cc6600;" [routerLink]="['']">
-                        <i class="fa-solid fa-utensils"></i>Restaurant
+                    <a class="nav-link" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+                        <i class="fa-solid fa-home"></i>
+                        <span>Accueil</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #cc6600;" [routerLink]="['/about']">
-                        <i class="fa-solid fa-address-card"></i>À propos
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="!(isLoggedIn$ | async)"> 
-                    <a class="nav-link" style="color: #cc6600;" [routerLink]="['/signup']">
-                        <i class="fa-solid fa-user-plus"></i>S'inscrire
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="!(isLoggedIn$ | async)"> 
-                    <a class="nav-link" style="color: #cc6600;" [routerLink]="['/login']">
-                        <i class="fa-solid fa-right-to-bracket"></i>
-                        Se Connecter
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="isLoggedIn$ | async"> 
-                    <a class="nav-link" style="color: #cc6600;" (click)="logout()">
-                        <i class="fa-solid fa-right-to-bracket"></i>
-                        Se déconnecter
+                    <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">
+                        <i class="fa-solid fa-address-card"></i>
+                        <span>À propos</span>
                     </a>
                 </li>
             </ul>
+
+            <ul class="nav-list auth-list">
+                <ng-container *ngIf="!(isLoggedIn$ | async); else loggedIn">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active" (click)="closeMenu()">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>S'inscrire</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login-button" [routerLink]="['/login']" routerLinkActive="active" (click)="closeMenu()">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span>Se Connecter</span>
+                        </a>
+                    </li>
+                </ng-container>
+                <ng-template #loggedIn>
+                    <li class="nav-item">
+                        <button class="nav-link logout-button" (click)="logout()">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>Se déconnecter</span>
+                        </button>
+                    </li>
+                </ng-template>
+            </ul>
         </div>
     </div>
+    <div class="menu-backdrop" *ngIf="isMobileMenuOpen" (click)="closeMenu()"></div>
 </nav>

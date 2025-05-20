@@ -1,11 +1,42 @@
-<footer style="background-color: rgb(255, 204, 102);">
-    <div class="footer" style="background-color: rgb(255, 204, 102);">
-        <div class="socials">
-            <a href="https://fr-fr.facebook.com"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/?lang=fr"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.fr"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.pinterest.fr"><i class="fab fa-pinterest"></i></a>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Restaurants</span>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a [routerLink]="['']">Accueil</a></li>
+                        <li><a [routerLink]="['/about']">À propos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="https://fr-fr.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/?lang=fr" target="_blank" rel="noopener noreferrer" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.fr" target="_blank" rel="noopener noreferrer" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.pinterest.fr" target="_blank" rel="noopener noreferrer" title="Pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h6 style="text-align: center;">&copy; P22-UTBM-WE4B</h6>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Restaurants. Tous droits réservés. P22-UTBM-WE4B</p>
+        </div>
     </div>
 </footer>
