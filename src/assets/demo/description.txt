@@ -1,0 +1,28 @@
+🍽️ RecommandResto - Application de Recommandation de Restaurants | Projet Angular
+
+Découvrez RecommandResto, une application web moderne pour découvrir et partager vos restaurants préférés !
+
+✨ Fonctionnalités présentées dans la démo :
+• Navigation fluide et design moderne
+• Parcourir les restaurants par catégories
+• Système de likes et recommandations
+• Ajout de nouveaux restaurants
+• Gestion des menus par restaurant
+• Système d'authentification complet
+• Interface responsive (mobile & desktop)
+
+🛠️ Technologies utilisées :
+• Angular 13.3.3
+• JSON Server (API REST)
+• RxJS
+• Angular Forms
+• Material Design Icons
+
+🔗 Code source disponible sur GitHub
+https://github.com/E-adebayo/Restaurant
+
+#Angular #WebDevelopment #Restaurants #Frontend #TypeScript #WebApp #FoodApp #RestaurantApp #Development #coding
+
+-------------------
+Tags suggestions:
+angular tutorial, web development, restaurant app, angular project, typescript, frontend development, javascript, web app, food application, angular 13, restaurant management, crud application, responsive design, modern ui, authentication system
